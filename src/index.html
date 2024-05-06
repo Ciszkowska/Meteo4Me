@@ -15,24 +15,26 @@
   <body>
     <div class="app">
       <header>
-        <form>
+        <form class="search-form">
           <input
             type="search"
             placeholder="Enter a city"
             required
-            name="search-form"
-            id="city"
-          /><input type="submit" value="search" />
+            class="search-form-input"
+          /><input type="submit" value="search" class="search-form-button" />
         </form>
       </header>
       <main>
-        <h1>City</h1>
-        <p>
-          Tuesday 23:32, sunny
-          <br />
-          Humidity: 33%, Wind 3.21 km/h
-        </p>
-        <div>12C</div>
+        <div class="weather-data">
+          <h1 class="weather-city"></h1>
+          <p class="weather-details">
+            Tuesday 23:32, sunny
+            <br />
+            Humidity: <strong>33%</strong>, Wind <strong>3.21 km/h</strong>
+          </p>
+
+          <div class="weather-temperature">12C</div>
+        </div>
       </main>
       <footer>
         Coded by
