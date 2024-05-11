@@ -15,25 +15,32 @@
   <body>
     <div class="app">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             placeholder="Enter a city"
             required
             class="search-form-input"
+            id="search-form-input"
           /><input type="submit" value="search" class="search-form-button" />
         </form>
       </header>
       <main>
         <div class="weather-data">
-          <h1 class="weather-city"></h1>
-          <p class="weather-details">
-            Tuesday 23:32, sunny
-            <br />
-            Humidity: <strong>33%</strong>, Wind <strong>3.21 km/h</strong>
-          </p>
+          <div>
+            <h1 class="weather-city" id="city">Paris</h1>
+            <p class="weather-details">
+              Tuesday 23:32, sunny
+              <br />
+              Humidity: <strong>33%</strong>, Wind <strong>3.21 km/h</strong>
+            </p>
+          </div>
 
-          <div class="weather-temperature">12C</div>
+          <div class="weather-temperature-container">
+            <div class="weather-icon">🌞</div>
+            <div class="weather-temp">12</div>
+            <div class="weather-unit">°C</div>
+          </div>
         </div>
       </main>
       <footer>
@@ -49,5 +56,6 @@
         and hosted by netlify.
       </footer>
     </div>
+    <script src="home.js"></script>
   </body>
 </html>
