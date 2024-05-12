@@ -10,7 +10,7 @@ function refreshWeather(response) {
 
   iconElement.innerHTML = `<img src="${response.data.condition.icon_url} class="weather-icon"/>`;
 
-  timeElement.innerHTML = formatDate();
+  timeElement.innerHTML = formatDate(date);
   cityElement.innerHTML = response.data.city;
   temperatureElement.innerHTML = response.data.temperature.current;
   descritptionElement.innerHTML = response.data.condition.description;
@@ -58,3 +58,5 @@ function handleSearchSubmit(event) {
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
+
+searchCity("Paris");
