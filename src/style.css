@@ -76,7 +76,11 @@ main {
   display: flex;
 }
 .weather-icon {
-  width: 88px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 .weather-unit {
   font-size: 50px;

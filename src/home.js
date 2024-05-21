@@ -53,6 +53,11 @@ function handleSearchSubmit(event) {
 
   searchCity(searchInput.value);
 }
+function formatDay(timestapm) {
+  let date = new Date(timestapm * 1000);
+  let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
+  return days[date.getDay()];
+}
 function getForcastData(city) {
   let apiKey = "0545bce3d01f4c32b90ab31o4td65f55";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -61,14 +66,17 @@ function getForcastData(city) {
 function displayForecast(response) {
   let forecastHtml = "";
 
-  response.data.daily.forEach(function (day) {
-    forecastHtml =
-      forecastHtml +
-      `
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecastHtml =
+        forecastHtml +
+        `
 <div class="weather-forcast-day">
-  <div class="weather-forcast-date"> ${day}
+  <div class="weather-forcast-date"> ${formatDay(day.time)}
   </div>
-    <div class="weather-forecast-icon"> <img src="${daily.condition.icon_url}"/>
+    <div class="weather-forecast-icon"> <img src="${
+      daily.condition.icon_url
+    }" />
     </div>
     <div class="weather-forecast-temperatures">
       <div class="forecast-temperature">
@@ -79,6 +87,7 @@ function displayForecast(response) {
         </div>
 </div>
 </div>`;
+    }
   });
 
   let forecastElement = document.querySelector("#forecast");
