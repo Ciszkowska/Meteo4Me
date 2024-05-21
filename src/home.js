@@ -53,8 +53,8 @@ function handleSearchSubmit(event) {
 
   searchCity(searchInput.value);
 }
-function formatDay(timestapm) {
-  let date = new Date(timestapm * 1000);
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
   let days = [`Sun`, `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`];
   return days[date.getDay()];
 }
@@ -74,9 +74,7 @@ function displayForecast(response) {
 <div class="weather-forcast-day">
   <div class="weather-forcast-date"> ${formatDay(day.time)}
   </div>
-    <div class="weather-forecast-icon"> <img src="${
-      daily.condition.icon_url
-    }" />
+    <div class="weather-forecast-icon"> <img src="${day.condition.icon_url}" />
     </div>
     <div class="weather-forecast-temperatures">
       <div class="forecast-temperature">
@@ -98,5 +96,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Paris");
-
-displayForecast();
